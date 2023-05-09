@@ -57,11 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     totalBill.setText("Total bill: $" + String.format("%.2f", newAmount));
                     int numberPerson = Integer.parseInt(numPax.getText().toString());
-
-                    //if (numberPerson!= 1)
                     eachPays.setText("Each Pays: $" + String.format("%.2f",newAmount/numberPerson));
-                    // else
-                    // eachPays.setText("Each Pays: $" + newAmount);
+
                 }
             }
         });

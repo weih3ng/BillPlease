@@ -17,25 +17,37 @@
             android:id="@+id/textAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/amount" />
+            android:text="@string/amount"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textStyle="bold"
+
+            android:textSize="20sp" />
+
 
         <EditText
             android:id="@+id/editInputAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
+            android:hint="Enter Amount"
+            android:textColorHint="#888888"
             android:inputType="phone" />
 
         <TextView
             android:id="@+id/textNumberOfPax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/number_of_pax" />
+            android:text="@string/number_of_pax"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textStyle="bold"
+            android:textSize="20sp" />/>
 
         <EditText
             android:id="@+id/editInputNumPax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter No."
+            android:textColorHint="#888888"
             android:inputType="number" />
     </LinearLayout>
 
@@ -66,7 +78,8 @@
         android:id="@+id/textDiscount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/discount" />
+        android:text="@string/discount"
+        android:textColor="@android:color/holo_blue_bright"/>
 
     <EditText
         android:id="@+id/editInputDiscount"
@@ -83,12 +96,16 @@
             android:id="@+id/radioCashButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_light"
+            android:textStyle="bold"
             android:text="@string/cash" />
 
         <RadioButton
             android:id="@+id/radioPaynowButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_dark"
+            android:textStyle="bold"
             android:text="@string/paynow" />
     </RadioGroup>
 
@@ -123,14 +140,28 @@
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:layout_weight="1"
-            android:text="@string/total_bill" />
+            android:text="@string/total_bill"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="8" />
+
 
         <TextView
             android:id="@+id/eachPays"
             android:layout_width="368dp"
             android:layout_height="36dp"
             android:layout_weight="1"
-            android:text="@string/each_pays" />
+            android:text="@string/each_pays"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="8" />
+
     </LinearLayout>
 
 </LinearLayout>
