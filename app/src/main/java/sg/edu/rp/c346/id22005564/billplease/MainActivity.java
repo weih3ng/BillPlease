@@ -37,24 +37,33 @@ public class MainActivity extends AppCompatActivity {
         discount = findViewById(R.id.editInputDiscount);
 
         split.setOnClickListener(new View.OnClickListener() {
+
+            String amtToString = amt.getText().toString();
+            String numPaxToString = numPax.getText().toString();
+            boolean svsChecked = svs.isChecked();
+            boolean gstChecked = gst.isChecked();
             @Override
             public void onClick(View v) {
-                if(amt.getText().toString().trim().length()!=0 &&
-                        numPax.getText().toString().trim().length()!=0) {
+                if(amtToString.trim().length() != 0 && numPaxToString.trim().length() != 0) {
                     double newAmount = 0.0;
-                    if (!svs.isChecked() && !gst.isChecked()) {
-                        newAmount = Double.parseDouble(amt.getText().toString());
-                    } else if (svs.isChecked() && !gst.isChecked()) {
-                        newAmount = Double.parseDouble(amt.getText().toString()) * 1.1;
-                    } else if (!svs.isChecked() && gst.isChecked()) {
-                        newAmount = Double.parseDouble(amt.getText().toString()) * 1.07;
+                    double amtConvertDouble = Double.parseDouble(amt.getText().toString());
+
+                    if (!svsChecked && !gstChecked) {
+                        newAmount = amtConvertDouble;
+                    } else if (svsChecked && !gstChecked) {
+                        newAmount = amtConvertDouble * 1.1;
+                    } else if (!svsChecked && gstChecked) {
+                        newAmount = amtConvertDouble * 1.07;
                     } else {
-                        newAmount = Double.parseDouble(amt.getText().toString()) * 1.17;
+                        newAmount = amtConvertDouble * 1.17;
                     }
 
-                    if (discount.getText().toString().trim().length()!= 0) {
-                        newAmount*= 1-Double.parseDouble(discount.getText().toString())/100;
+                    double discConvertDouble = Double.parseDouble(discount.getText().toString());
+                    String discountToString = discount.getText().toString();
+                    if (discountToString.trim().length()!= 0) {
+                        newAmount *= 1-discConvertDouble/100;
                     }
+
                     totalBill.setText("Total bill: $" + String.format("%.2f", newAmount));
                     int numberPerson = Integer.parseInt(numPax.getText().toString());
                     eachPays.setText("Each Pays: $" + String.format("%.2f",newAmount/numberPerson));
