@@ -11,7 +11,7 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText amount;
+    EditText amt;
     EditText numPax;
     ToggleButton svs;
     ToggleButton gst;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        amount = findViewById(R.id.editInputAmount);
+        amt = findViewById(R.id.editInputAmount);
         numPax = findViewById(R.id.editInputNumPax);
         totalBill = findViewById(R.id.totalBill);
         eachPays = findViewById(R.id.eachPays);
@@ -39,17 +39,17 @@ public class MainActivity extends AppCompatActivity {
         split.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(amount.getText().toString().trim().length()!=0 &&
+                if(amt.getText().toString().trim().length()!=0 &&
                         numPax.getText().toString().trim().length()!=0) {
                     double newAmount = 0.0;
                     if (!svs.isChecked() && !gst.isChecked()) {
-                        newAmount = Double.parseDouble(amount.getText().toString());
+                        newAmount = Double.parseDouble(amt.getText().toString());
                     } else if (svs.isChecked() && !gst.isChecked()) {
-                        newAmount = Double.parseDouble(amount.getText().toString()) * 1.1;
+                        newAmount = Double.parseDouble(amt.getText().toString()) * 1.1;
                     } else if (!svs.isChecked() && gst.isChecked()) {
-                        newAmount = Double.parseDouble(amount.getText().toString()) * 1.07;
+                        newAmount = Double.parseDouble(amt.getText().toString()) * 1.07;
                     } else {
-                        newAmount = Double.parseDouble(amount.getText().toString()) * 1.17;
+                        newAmount = Double.parseDouble(amt.getText().toString()) * 1.17;
                     }
 
                     if (discount.getText().toString().trim().length()!= 0) {
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                amount.setText("");
+                amt.setText("");
                 numPax.setText("");
                 svs.setChecked(false);
                 gst.setChecked(false);
